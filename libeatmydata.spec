@@ -33,7 +33,9 @@ the libeatmydata LD_PRELOAD
 
 %package libs
 Summary: The libeatmydata library
+%if !(0%{?rhel} && 0%{?rhel} < 8)
 Recommends: eatmydata
+%endif
 %description libs
 The libeatmydata library. Most commonly used with the eatmydata wrapper.
 
