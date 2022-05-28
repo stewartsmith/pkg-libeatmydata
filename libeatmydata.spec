@@ -51,6 +51,10 @@ The libeatmydata library. Most commonly used with the eatmydata wrapper.
 mkdir -p %{buildroot}%{_mandir}/man1/
 install -m444 -p %{SOURCE3} %{buildroot}%{_mandir}/man1/
 
+%if !0%{?fedora} || 0%{?fedora} < 36
+find %{buildroot} -name "*.la" -type f -delete
+%endif
+
 %check
 %{__make} check
 
