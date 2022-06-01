@@ -1,10 +1,10 @@
 Name:           libeatmydata
 Version:        130
-Release:        2%{?dist}
+Release:        3%{?dist}
 Group:          Development/Tools
 License:        GPLv3
 Summary:        PRELOAD library that disables fcommonly ssed with eatmydata wrapper
-BuildRequires:  make, libtool, strace, gnupg
+BuildRequires:  gcc, make, libtool, strace, gnupg
 Source0:        https://www.flamingspork.com/projects/libeatmydata/%{name}-%{version}.tar.gz
 Source1:        https://www.flamingspork.com/projects/libeatmydata/%{name}-%{version}.tar.gz.asc
 Source2:        https://flamingspork.com/stewart.gpg
@@ -56,16 +56,18 @@ find %{buildroot} -name "*.la" -type f -delete
 %{__make} check
 
 %files -n eatmydata
-%defattr(-,root,root)
-%attr(755,-,-) %{_bindir}/eatmydata
-%attr(755,-,-) %{_libexecdir}/eatmydata.sh
+%{_bindir}/eatmydata
+%{_libexecdir}/eatmydata.sh
 %{_mandir}/man1/eatmydata.1*
 %doc README.md AUTHORS
+%license COPYING
 
 %files
 %{_libdir}/*.so
 
 %changelog
+* Tue May 31 2022 Stewart Smith <stewart@flamingspork.com> - 130-3
+- Fixes for submitting packaging to Fedora
 * Fri May 27 2022 Stewart Smith <stewart@flamingspork.com> - 130-2
 - Package for Fedora
 * Sun Oct 10 2021 Stewart Smith <stewart@flamingspork.com> - 130-1
