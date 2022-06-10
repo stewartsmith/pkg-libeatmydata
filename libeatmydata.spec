@@ -1,9 +1,9 @@
 Name:           libeatmydata
 Version:        130
-Release:        3%{?dist}
+Release:        4%{?dist}
 Group:          Development/Tools
 License:        GPLv3
-Summary:        PRELOAD library that disables fcommonly ssed with eatmydata wrapper
+Summary:        Library and utilities designed to disable fsync and friends
 BuildRequires:  gcc, make, libtool, strace, gnupg
 Source0:        https://www.flamingspork.com/projects/libeatmydata/%{name}-%{version}.tar.gz
 Source1:        https://www.flamingspork.com/projects/libeatmydata/%{name}-%{version}.tar.gz.asc
@@ -66,6 +66,8 @@ find %{buildroot} -name "*.la" -type f -delete
 %{_libdir}/*.so
 
 %changelog
+* Sat Jun 11 2022 Stewart Smith <stewart@flamingspork.com> - 130-4
+- Fix Summary
 * Tue May 31 2022 Stewart Smith <stewart@flamingspork.com> - 130-3
 - Fixes for submitting packaging to Fedora
 * Fri May 27 2022 Stewart Smith <stewart@flamingspork.com> - 130-2
