@@ -27,7 +27,7 @@ Summary: Utility to disable fsync() and friends for the command specified
 # Explict requires as the main package is a shell script that does an LD_PRELOAD
 # and thus we don't get automatic dependencies!
 Requires: %{name}
-BuildArch: noarch
+
 %description -n eatmydata
 The eatmydata script does the heavy lifting of LD_PRELOAD for the command
 specified. You can also symlink a command to the eatmydata wrapper and the
@@ -68,6 +68,8 @@ find %{buildroot} -name "*.la" -type f -delete
 %changelog
 * Sat Jun 11 2022 Stewart Smith <stewart@flamingspork.com> - 130-4
 - Fix Summary
+- Build eatmydata per-arch as script contains arch specific dirs
+  See https://bugzilla.redhat.com/show_bug.cgi?id=2099313
 * Tue May 31 2022 Stewart Smith <stewart@flamingspork.com> - 130-3
 - Fixes for submitting packaging to Fedora
 * Fri May 27 2022 Stewart Smith <stewart@flamingspork.com> - 130-2
